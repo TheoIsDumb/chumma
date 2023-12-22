@@ -1,8 +1,12 @@
 import os
 
+fn prompt() {
+	command := os.input("$ ").split(' ')
+	println(command)
+}
+
 fn main() {
 	for {
-		command := os.input("$ ")
-		println("${command.to_upper()}")
+		prompt()
 	}
 }
