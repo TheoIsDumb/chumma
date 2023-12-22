@@ -1,8 +1,11 @@
 import os
 
 fn upper(cmd []string) {
-	// println(cmd[1..].map(it.to_upper()).join(' '))
 	println(cmd[1..].join(' ').to_upper())
+}
+
+fn echo(cmd []string) {
+	println(cmd[1..].join(' '))
 }
 
 fn prompt(prompt_str string) {
@@ -10,8 +13,8 @@ fn prompt(prompt_str string) {
 
 	if command[0] == "upper" {
 		upper(command)
-	} else {
-		println(command)
+	} else if command[0] == "echo" {
+		echo(command)
 	}
 }
 
