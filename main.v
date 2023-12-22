@@ -1,6 +1,8 @@
 import os
 
 fn main() {
-	name := os.input("Enter your name: ")
-	println("your name is ${name}!")
+	for {
+		command := os.input("$ ")
+		println("${command.to_upper()}")
+	}
 }
