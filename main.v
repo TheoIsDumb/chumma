@@ -15,6 +15,8 @@ fn prompt(prompt_str string) {
 		upper(command)
 	} else if command[0] == "echo" {
 		echo(command)
+	} else {
+		println("${command[0]}: command not found")
 	}
 }
 
