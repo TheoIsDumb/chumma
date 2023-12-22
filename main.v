@@ -15,14 +15,11 @@ fn help() {
 fn prompt(prompt_str string) {
 	command := os.input(prompt_str).split(' ')
 
-	if command[0] == "upper" {
-		upper(command)
-	} else if command[0] == "echo" {
-		echo(command)
-	} else if command[0] == "help" {
-		help()
-	} else {
-		println("${command[0]}: command not found")
+	match command[0] {
+		'upper' { upper(command) }
+		'echo' { echo(command) }
+		'help' { help() }
+		else { println("${command[0]}: command not found.") }
 	}
 }
 
