@@ -7,6 +7,7 @@ fn prompt(prompt_str string) {
 		'upper' { upper(command) }
 		'echo' { echo(command) }
 		'help' { help() }
+		'exit' { println("Pax."); exit(0) }
 		else { println("${command[0]}: command not found.") }
 	}
 }
