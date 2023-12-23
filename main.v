@@ -8,7 +8,7 @@ fn prompt(prompt_str string) {
 		'echo' { echo(command) }
 		'help' { help() }
 		'pwd' { println(os.getwd()) }
-		'exit' { println("Pax."); exit(0) }
+		'exit', '<EOF>' { println("\nPax."); exit(0) }
 		else { println("${command[0]}: command not found.") }
 	}
 }
