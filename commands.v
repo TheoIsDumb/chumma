@@ -20,3 +20,13 @@ fn ls() {
 
 	println(files)
 }
+
+fn cd(cmd []string) {
+	if cmd.len == 1 {
+		println("bruh")
+	} else {
+		os.chdir(cmd[1]) or {
+			println(err)
+		}
+	}
+}
