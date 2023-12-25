@@ -10,6 +10,7 @@ fn prompt(prompt_str string) {
 		'ls' { ls() }
 		'cd' { cd(command) }
 		'pwd' { println(os.getwd()) }
+		'clear' { clear() }
 		'exit', '<EOF>' { println("\nPax."); exit(0) }
 		else { println("${command[0]}: command not found.") }
 	}

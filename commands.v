@@ -32,3 +32,7 @@ fn cd(cmd []string) {
 		}
 	}
 }
+
+fn clear() {
+	os.system('clear')
+}
