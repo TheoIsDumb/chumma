@@ -35,7 +35,11 @@ fn cd(cmd []string) {
 }
 
 fn clear() {
-	os.system('clear')
+	if os.user_os() == "windows" {
+		os.system('cls')
+	} else {
+		os.system('clear')
+	}
 }
 
 fn ps1(cmd []string) {
