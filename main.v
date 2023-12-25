@@ -1,11 +1,16 @@
 import os
 
-fn prompt(prompt_str string) {
-	command := os.input(prompt_str).split(' ')
+__global (
+	prompt_str = "$"
+)
+
+fn prompt() {
+	command := os.input("${prompt_str} ").split(' ')
 
 	match command[0] {
 		'upper' { upper(command) }
 		'echo' { echo(command) }
+		'ps1' { ps1(command) }
 		'help' { help() }
 		'ls' { ls() }
 		'cd' { cd(command) }
@@ -17,8 +22,7 @@ fn prompt(prompt_str string) {
 }
 
 fn main() {
-	prompt_str := "$ "
 	for {
-		prompt(prompt_str)
+		prompt()
 	}
 }

@@ -36,3 +36,7 @@ fn cd(cmd []string) {
 fn clear() {
 	os.system('clear')
 }
+
+fn ps1(cmd []string) {
+	prompt_str = cmd[1]
+}
