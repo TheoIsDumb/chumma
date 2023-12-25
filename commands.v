@@ -23,7 +23,9 @@ fn ls() {
 
 fn cd(cmd []string) {
 	if cmd.len == 1 {
-		println("bruh")
+		os.chdir(os.getenv("HOME")) or {
+			println(err)
+		}
 	} else {
 		os.chdir(cmd[1]) or {
 			println(err)
