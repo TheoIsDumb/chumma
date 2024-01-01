@@ -1,4 +1,5 @@
 import os
+import term
 
 fn upper(cmd []string) {
 	println(cmd[1..].join(' ').to_upper())
@@ -36,11 +37,7 @@ fn cd(cmd []string) {
 }
 
 fn clear() {
-	if os.user_os() == "windows" {
-		os.system('cls')
-	} else {
-		os.system('clear')
-	}
+	term.clear()
 }
 
 fn ps1(cmd []string) {
