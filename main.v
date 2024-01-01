@@ -2,15 +2,20 @@ import os
 import time
 
 __global (
-	prompt_str	string
-	exec_time		bool
+	config			Config
 	sw					time.StopWatch
 )
 
-fn prompt() {
-	command := os.input("${prompt_str} ").split(' ')
+struct Config {
+	mut:
+		prompt_str string
+		exec_time	bool
+}
 
-	if exec_time == true {
+fn prompt() {
+	command := os.input("${config.prompt_str} ").split(' ')
+
+	if config.exec_time == true {
 		sw = time.new_stopwatch()
 	}
 
@@ -27,17 +32,17 @@ fn prompt() {
 		else { println("${command[0]}: command not found.") }
 	}
 
-	if exec_time == true {
+	if config.exec_time == true {
 		println(sw.elapsed())
 	}
 }
 
 fn initialize() {
 	filename := "${os.getenv("HOME")}/.config/chumma.ini"
-	config := "prompt_str=$\nexec_time=true"
+	config_text := "prompt_str=$\nexec_time=true"
 
 	if os.exists(filename) == false {
-		os.write_file(filename, config) or {
+		os.write_file(filename, config_text) or {
 			panic(err)
 		}
 	}
@@ -51,9 +56,10 @@ fn initialize() {
 		line := f.split("=")
 
 		if line[0] == "prompt_str" {
-			prompt_str = line[1]
+			config.prompt_str = line[1]
+			println("prompt str: ${config.prompt_str}")
 		} else if line[0] == "exec_time" {
-			exec_time = if line[1] == "true" { true } else { false }
+			config.exec_time = if line[1] == "true" { true } else { false }
 		}
 	}
 }

@@ -44,5 +44,5 @@ fn clear() {
 }
 
 fn ps1(cmd []string) {
-	prompt_str = cmd[1]
+	config.prompt_str = cmd[1]
 }
