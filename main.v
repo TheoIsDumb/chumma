@@ -21,7 +21,7 @@ fn prompt() {
 	}
 }
 
-fn main() {
+fn initialize() {
 	content := os.read_file('options.ini') or {
 		panic("error")
 	}
@@ -34,6 +34,10 @@ fn main() {
 			prompt_str = line[1]
 		}
 	}
+}
+
+fn main() {
+	initialize()
 
 	for {
 		prompt()
