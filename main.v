@@ -14,7 +14,7 @@ struct Config {
 }
 
 fn prompt() {
-	command := os.input("${config.prompt_str} ").split(' ')
+	command := os.input("${term.bright_blue(config.prompt_str)} ").split(' ')
 
 	if config.exec_time == true {
 		sw = time.new_stopwatch()
@@ -33,8 +33,8 @@ fn prompt() {
 		else { println(term.bright_red("${command[0]}: command not found.")) }
 	}
 
-	if config.exec_time == true {
-		println(sw.elapsed())
+	if config.exec_time == true && command[0] != "clear" {
+		println("Exec time: ${term.bright_blue(sw.elapsed().str())}")
 	}
 }
 
