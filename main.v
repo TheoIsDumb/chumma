@@ -1,4 +1,5 @@
 import os
+import time
 
 __global (
 	prompt_str string
@@ -6,6 +7,8 @@ __global (
 
 fn prompt() {
 	command := os.input("${prompt_str} ").split(' ')
+
+	sw := time.new_stopwatch()
 
 	match command[0] {
 		'upper' { upper(command) }
@@ -19,6 +22,8 @@ fn prompt() {
 		'exit', '<EOF>' { println("\nPax."); exit(0) }
 		else { println("${command[0]}: command not found.") }
 	}
+
+	println(sw.elapsed())
 }
 
 fn initialize() {
