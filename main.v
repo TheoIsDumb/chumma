@@ -1,5 +1,6 @@
 import os
 import time
+import term
 
 __global (
 	config			Config
@@ -29,7 +30,7 @@ fn prompt() {
 		'pwd' { println(os.getwd()) }
 		'clear' { clear() }
 		'exit', '<EOF>' { println("\nPax."); exit(0) }
-		else { println("${command[0]}: command not found.") }
+		else { println(term.bright_red("${command[0]}: command not found.")) }
 	}
 
 	if config.exec_time == true {
@@ -57,7 +58,6 @@ fn initialize() {
 
 		if line[0] == "prompt_str" {
 			config.prompt_str = line[1]
-			println("prompt str: ${config.prompt_str}")
 		} else if line[0] == "exec_time" {
 			config.exec_time = if line[1] == "true" { true } else { false }
 		}
