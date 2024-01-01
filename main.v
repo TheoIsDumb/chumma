@@ -34,9 +34,10 @@ fn prompt() {
 
 fn initialize() {
 	filename := "${os.getenv("HOME")}/.config/chumma.ini"
+	config := "prompt_str=$\nexec_time=true"
 
 	if os.exists(filename) == false {
-		os.write_file(filename, "prompt_str=$\nexec_time=true") or {
+		os.write_file(filename, config) or {
 			panic(err)
 		}
 	}
