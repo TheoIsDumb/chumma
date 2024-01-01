@@ -22,8 +22,16 @@ fn prompt() {
 }
 
 fn initialize() {
-	content := os.read_file('options.ini') or {
-		panic("error")
+	filename := "${os.getenv("HOME")}/.config/chumma.ini"
+
+	if os.exists(filename) == false {
+		os.write_file(filename, "prompt_str=$") or {
+			panic(err)
+		}
+	}
+
+	content := os.read_file(filename) or {
+		panic(err)
 	}
 
 	lines := content.trim("\n").split("\n")
