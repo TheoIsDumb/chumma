@@ -2,13 +2,17 @@ import os
 import time
 
 __global (
-	prompt_str string
+	prompt_str	string
+	exec_time		= false
+	sw					time.StopWatch
 )
 
 fn prompt() {
 	command := os.input("${prompt_str} ").split(' ')
 
-	sw := time.new_stopwatch()
+	if exec_time == true {
+		sw = time.new_stopwatch()
+	}
 
 	match command[0] {
 		'upper' { upper(command) }
@@ -23,7 +27,9 @@ fn prompt() {
 		else { println("${command[0]}: command not found.") }
 	}
 
-	println(sw.elapsed())
+	if exec_time == true {
+		println(sw.elapsed())
+	}
 }
 
 fn initialize() {
