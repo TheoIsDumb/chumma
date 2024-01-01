@@ -3,7 +3,7 @@ import time
 
 __global (
 	prompt_str	string
-	exec_time		= false
+	exec_time		bool
 	sw					time.StopWatch
 )
 
@@ -36,7 +36,7 @@ fn initialize() {
 	filename := "${os.getenv("HOME")}/.config/chumma.ini"
 
 	if os.exists(filename) == false {
-		os.write_file(filename, "prompt_str=$") or {
+		os.write_file(filename, "prompt_str=$\nexec_time=true") or {
 			panic(err)
 		}
 	}
@@ -51,6 +51,8 @@ fn initialize() {
 
 		if line[0] == "prompt_str" {
 			prompt_str = line[1]
+		} else if line[0] == "exec_time" {
+			exec_time = if line[1] == "true" { true } else { false }
 		}
 	}
 }
