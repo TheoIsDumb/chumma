@@ -1,7 +1,7 @@
 import os
 
 __global (
-	prompt_str = "$"
+	prompt_str string
 )
 
 fn prompt() {
@@ -22,6 +22,19 @@ fn prompt() {
 }
 
 fn main() {
+	content := os.read_file('options.ini') or {
+		panic("error")
+	}
+
+	lines := content.trim("\n").split("\n")
+	for f in lines {
+		line := f.split("=")
+
+		if line[0] == "prompt_str" {
+			prompt_str = line[1]
+		}
+	}
+
 	for {
 		prompt()
 	}
