@@ -9,7 +9,8 @@ fn echo(cmd []string) {
 }
 
 fn help() {
-	println("available commands are upper, echo, help")
+	println("available commands:")
+	println("upper, echo, ps1, ls, cd, pwd, clear, exit, help")
 }
 
 fn ls() {
