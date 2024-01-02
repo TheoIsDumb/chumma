@@ -1,6 +1,12 @@
 # chumma
 
+![logo](assets/logo.webp)
+
 a "shell" written in V, for the purposes of playing around with [V](https://vlang.io).
+
+## screenshots
+
+
 
 ## prerequisites
 

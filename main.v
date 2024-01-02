@@ -23,8 +23,7 @@ fn print_info() {
              MMWO0MMl oMM OMW   oMM xMN     ,WMMM.    .koMM               
              MM0 .MMl oMM       oMM xMN    ,WMNMM.    . .MM               
              MM0 .MMl oMM       oMM xMN   'WMloMM.      .MM               
-             MM0 .MMl oMM       oMM xMN  'WMl oMM.      .MM"))
-	println(term.bright_white("
+             MM0 .MMl oMM       oMM xMN  'WMl oMM.      .MM
              MM0 .MMl oMM       oMM xMN .NMc  oMM.      .MM               
              MM0 .MMl oMM       oMM xMN.NMc   oMM.      .MM               
                  ;MMl oMM    .:OWMK xMWXW:    oMM.      .MM               
@@ -37,13 +36,12 @@ fn print_info() {
                           OMW...kMM.                                      
                           OMMMMMMMM.                                      
 	"))
-	println('A "shell" made in V.')
+	println('\na "shell" made in V.')
 	help()
-	println("")
 }
 
 fn prompt() {
-	command := os.input("${term.bright_blue(config.prompt_str)} ").split(' ')
+	command := os.input("\n${term.bright_blue(config.prompt_str)} ").split(' ')
 
 	if config.exec_time == true {
 		sw = time.new_stopwatch()
@@ -63,7 +61,9 @@ fn prompt() {
 	}
 
 	if config.exec_time == true && command[0] != "clear" {
-		println("Exec time: ${term.bright_blue(sw.elapsed().str())}")
+		println(term.bg_magenta("  ") +
+			term.magenta("") + " " +
+			term.bright_blue(sw.elapsed().str()))
 	}
 }
 
