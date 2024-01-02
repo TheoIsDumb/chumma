@@ -4,9 +4,9 @@
 
 a "shell" written in V, for the purposes of playing around with [V](https://vlang.io).
 
-## screenshots
+## screenshot
 
-
+![logo](assets/screenshot.webp)
 
 ## prerequisites
 
