@@ -13,6 +13,35 @@ struct Config {
 		exec_time	bool
 }
 
+fn print_info() {
+	print(term.bright_blue("
+                      MMM MMMMMMMMM cccccccc;.ccccccccc                  
+                      oMM OMMNNNWMM xMMKKKKKWMNMMXKKKKNMK.                
+                      oMM OMW   oMM xMN     'NMMM.    .0MN.               
+                      oMM OMW   oMM xMN      .NMM.      OMW               
+             ddddddd, oMM OMW   oMM xMN      ;MMM.     .NMM               
+             MMWO0MMl oMM OMW   oMM xMN     ,WMMM.    .koMM               
+             MM0 .MMl oMM       oMM xMN    ,WMNMM.    . .MM               
+             MM0 .MMl oMM       oMM xMN   'WMloMM.      .MM               
+             MM0 .MMl oMM       oMM xMN  'WMl oMM.      .MM"))
+	println(term.bright_white("
+             MM0 .MMl oMM       oMM xMN .NMc  oMM.      .MM               
+             MM0 .MMl oMM       oMM xMN.NMc   oMM.      .MM               
+                 ;MMl oMM    .:OWMK xMWXW:    oMM.      .MM               
+               ,OMMk  oMM  ;kWMMK,  xMMW,     oMM.      .MM               
+  .,,,,,,,,,,:0MMNo,,,kMM kMMxOWMWO xMMo,,,,,,kMMc,,,,,,cMM MMM          
+  xMMMMMMMMMMMMMMMMMMMMMM OMW   kMM xMMMMMMMMMMMMMMMMMWWWWW XMN           
+                          OMW   dMM.                                      
+                          OMW   dMM.                                      
+                          OMW   dMM.                                      
+                          OMW...kMM.                                      
+                          OMMMMMMMM.                                      
+	"))
+	println('A "shell" made in V.')
+	help()
+	println("")
+}
+
 fn prompt() {
 	command := os.input("${term.bright_blue(config.prompt_str)} ").split(' ')
 
@@ -65,6 +94,7 @@ fn initialize() {
 }
 
 fn main() {
+	print_info()
 	initialize()
 
 	for {
